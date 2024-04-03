@@ -3,20 +3,20 @@ const colorRouter = express.Router()
 const Color = require('../models/color')
 
 
-colorRouter.post('/many', async(req,res,next) => {
-    try {
-        const arr = req.body
-        const savedColors = await Promise.all(arr.map(async color => {
-            const newColor = new Color(color)
-            const savedColor = await newColor.save()
-            return savedColor
-        }))
-        return res.status(201).send(savedColors)
-    } catch (err) {
-        res.status(500)
-        return next(err)
-    }
-})
+// colorRouter.post('/many', async(req,res,next) => {
+//     try {
+//         const arr = req.body
+//         const savedColors = await Promise.all(arr.map(async color => {
+//             const newColor = new Color(color)
+//             const savedColor = await newColor.save()
+//             return savedColor
+//         }))
+//         return res.status(201).send(savedColors)
+//     } catch (err) {
+//         res.status(500)
+//         return next(err)
+//     }
+// })
 
 colorRouter.get('/', async(req, res, next) => {
     try {
