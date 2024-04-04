@@ -4,9 +4,11 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const PORT = process.env.PORT
+const cors = require('cors')
 
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(cors())
 
 const connectToDB = async () => {
     try {
