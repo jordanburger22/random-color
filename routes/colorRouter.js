@@ -33,7 +33,7 @@ colorRouter.get('/random', async(req, res, next) => {
     try {
         Color.aggregate([
             {$sample: {size: 1}}
-        ]).then(randomColor => res.status(200).send(randomColor))
+        ]).then(randomColor => res.status(200).send(randomColor[0]))
         
     } catch (err) {
         
